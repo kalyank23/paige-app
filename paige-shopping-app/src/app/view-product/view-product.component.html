@@ -1,0 +1,15 @@
+<div class="col-sm-12">
+  <h1 mat-dialog-title>View Product</h1>
+  <div mat-dialog-content>
+    <table>
+      <tr *ngFor="let attr of shoppingService.sort_order">
+        <td [ngStyle]="{width: '150px'}"><b>{{ attr | typeToTitle }}:</b></td>
+        <td>{{ product_selected[attr] }}</td>
+      </tr>
+    </table>
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-success" mat-button mat-dialog-close [ngStyle]="{margin: '10px', width: '100px'}" (click)="updateProduct()">Update</button>
+    <button class="btn btn-danger" mat-button mat-dialog-close [ngStyle]="{margin: '10px', width: '100px'}" (click)="removeProduct()">Delete</button>
+  </div>
+</div>

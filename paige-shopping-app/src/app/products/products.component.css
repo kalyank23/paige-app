@@ -1,0 +1,12 @@
+.example-card {
+  height: 550px;
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid;
+}
+  
+.example-header-image {
+  background-size: cover;
+}
+  

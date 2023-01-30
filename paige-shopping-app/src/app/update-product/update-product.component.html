@@ -1,0 +1,18 @@
+<div class="col-sm-12">
+  <h1 mat-dialog-title>View Product</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="productForm">
+      <div *ngFor="let attr of shoppingService.sort_order">
+        <div>
+          <label [ngStyle]="{width: '150px'}"><b>{{ attr | typeToTitle }}:</b></label>
+          <span *ngIf="attr!='description'"><input type="text" [formControlName]="attr" class="form-control"/></span>
+          <span *ngIf="attr=='description'"><textarea [formControlName]="attr" class="form-control"></textarea></span>
+        </div>
+      </div>
+      <div mat-dialog-actions>
+        <button class="btn btn-success" mat-button mat-dialog-close [ngStyle]="{margin: '10px', width: '100px'}" (click)="save()">Save</button>
+        <button class="btn btn-danger" mat-button mat-dialog-close [ngStyle]="{margin: '10px', width: '100px'}">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

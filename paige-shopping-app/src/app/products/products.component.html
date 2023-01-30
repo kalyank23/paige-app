@@ -1,0 +1,26 @@
+<router-outlet *ngIf="false"></router-outlet>
+<div [ngStyle]="{margin: '30px'}">
+    <table  *ngFor="let type of products_with_types | keyvalue">
+        <h2 [ngStyle]="{color: 'blue'}">{{ type.key | typeToTitle }}</h2>
+        <tr>
+            <td *ngFor="let product of type.value">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                    <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + product['image'] + ')'}"></div>
+                    <mat-card-title>{{ product['name'] }}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="product['image']" alt="Photo of a Shiba Inu" [ngStyle]="{height: '300px'}">
+                    <mat-card-content>
+                    <p>
+                        {{ product['description'] }}<br /><br />
+                        <b> Price: ${{ product['price'] }}</b>
+                    </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                    <button mat-button class="btn btn-info" (click)="selectProduct(product['sku'])">View Details</button>
+                    </mat-card-actions>
+                </mat-card>
+            </td>
+        </tr>
+    </table>
+</div>
